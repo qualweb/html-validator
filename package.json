@@ -1,0 +1,22 @@
+{
+  "name": "html-validator",
+  "version": "1.0.0",
+  "description": "Checks the html markup of a webpage for errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html5",
+    "validator"
+  ],
+  "author": "João Vicente",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "vnu-jar": "^20.1.2"
+  }
+}
