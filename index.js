@@ -21,7 +21,7 @@ function fixUrl(url) {
   return 'http://' + url; 
 }
 
-app.get('/:url', (req, res) => {
+app.get('/url/:url', (req, res) => {
   const url = decodeURIComponent(req.params.url);
   console.log(`Validating ${url}`);
   exec(`java -jar ${vnu} --format json ${fixUrl(url)}`, (error, stdout, stderr) => {
