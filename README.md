@@ -21,6 +21,6 @@ Java must be installed in the system.
 
 ## Webservice
 
-http://localhost:5000/url/:url
+http://localhost:5555/url/:url
 
 Replace the :url for the desired url to validate.
