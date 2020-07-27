@@ -43,22 +43,27 @@ app.get('/url/:url', (req, res) => {
   const url = decodeURIComponent(req.params.url.trim()).trim();
   if (url) {
     if (isValidUrl(fixUrl(url))) {
-      try {
+      try { console.log('Validating: ', url);
         exec(`java -jar ${vnu} --format json ${fixUrl(url)}`, (error, stdout, stderr) => {
+          if (stderr) {
+            res.status(200).json(stderr);
+          } else {
+            res.status(500).json(error);
+          }
+
           if (error) {
             logError(error);
-          } else {
-            res.json(stderr);
           }
         });
       } catch (err) {
         logError(err);
+	      res.status(500).json(err);
       }
     } else {
-      res.statusCode(500);
+      res.status(500).json('Invalid url');
     }
   } else {
-    res.statusCode(500);
+    res.status(500).json('Invalid url');
   }
 });
 
