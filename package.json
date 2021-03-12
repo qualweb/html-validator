@@ -1,6 +1,6 @@
 {
   "name": "html-validator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Checks the html markup of a webpage for errors",
   "main": "index.js",
   "scripts": {

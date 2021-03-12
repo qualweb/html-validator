@@ -16,7 +16,7 @@ app.use(bodyParser.json({limit: '2mb'}));
 app.use(bodyParser.urlencoded({ extended: false, limit: '2mb' }));
 
 function logError(error) {
-  fs.writeFile('./error.log', error, {'flag':'a'}, (err) => {
+  fs.writeFile('./error.log', JSON.stringify(error), {'flag':'a'}, (err) => {
     if (err) console.error(err);
   });
 }
@@ -39,7 +39,7 @@ function isValidUrl(url) {
   }
 }
 
-app.get('/url/:url', (req, res) => {
+app.get('/:url', (req, res) => {
   const url = decodeURIComponent(req.params.url.trim()).trim();
   if (url) {
     if (isValidUrl(fixUrl(url))) {
